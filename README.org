@@ -1,0 +1,28 @@
+* About
+
+Getting git to let multiple repositories co-exist in the same directory.
+
+Inspired by [[https://github.com/capr/multigit][multigit]].
+
+* How
+
+- =switch= updates the =GIT_DIR= variable
+- when switching, ignore all files tracked by neighboring repositories
+
+* Warning
+
+This is a _terrible_ idea...but a fun experiment.
+
+* Example
+
+#+begin_src bash
+  source .envrc
+
+  switch foo
+  touch tracked.by.foo
+  git add tracked.by.foo
+
+  switch bar
+  touch tracked.by.bar
+  git add tracked.by.bar
+#+end_src
